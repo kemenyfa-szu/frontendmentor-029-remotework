@@ -1,0 +1,58 @@
+@use "../styles.scss" as base;
+
+.article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    @media (width < 64rem) {
+      max-width: 25rem;
+    }
+    @media (width >= 64rem) {
+      display: flex;
+      flex-direction: row-reverse;
+      padding-inline: 3rem;
+      max-width: 70rem;
+    }
+  }
+  &__image {
+    margin-block-end: 3rem;
+  }
+  &__content {
+    text-align: center;
+    padding-inline: 0.5rem;
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-block-end: 1rem;
+
+    @media (width > 64rem) {
+    }
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.65em;
+    margin-block-end: 1.5rem;
+  }
+
+  &__learn-more {
+    display: inline-block;
+    background-color: base.$almost-black;
+    color: base.$almost-white;
+    padding: 0.875em 1.5em;
+    font-size: 0.875rem;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-block-end: 2.75rem;
+  }
+
+  &__partner-list {
+    display: flex;
+    list-style-type: none;
+    gap: 1.25rem;
+  }
+}

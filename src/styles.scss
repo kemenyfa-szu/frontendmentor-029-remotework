@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+$almost-white: hsl(0, 0%, 98%);
+$medium-gray: hsl(0, 0%, 41%);
+$almost-black: hsl(0, 0%, 8%);
+
+@font-face {
+  font-family: "Epilogue";
+  src: url("./assets/font/Epilogue-VariableFont_wght.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 1px solid tomato;
+}
+
+html {
+  font-size: 1.125rem; // 18px as style-guide says
+  font-family: "Epilogue", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  color: $medium-gray;
+  background-color: $almost-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: $almost-black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $almost-black;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+footer {
+  display: none;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

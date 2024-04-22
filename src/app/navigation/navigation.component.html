@@ -1,0 +1,114 @@
+<a href="#" class="logo">
+  <img src="assets/images/logo.svg" alt="Snap logo" />
+</a>
+<nav class="topnav">
+  <span id="nav-label" hidden>Navigation</span>
+  <button
+    id="btnOpen"
+    class="topnav__open"
+    aria-expanded="false"
+    aria-labelledby="nav-label"
+  >
+    <img src="assets/images/icon-menu.svg" alt="" />
+  </button>
+
+  <div class="topnav__container">
+    <div class="topnav__menu" role="dialog" aria-labelledby="nav-label">
+      <button id="btnClose" class="topnav__close" aria-label="Close">
+        <img src="assets/images/icon-close-menu.svg" alt="" />
+      </button>
+
+      <ul class="topnav__links">
+        <li class="topnav__item topnav__item--has-submenu">
+          <a
+            href="#"
+            class="topnav__link topnav__link--dropdown"
+            aria-expanded="false"
+            id="dropdown-1"
+            >Features
+          </a>
+          <ul
+            class="topnav__submenu topnav__submenu--extra-padding topnav__submenu--right"
+          >
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink"
+                ><img
+                  src="assets/images/icon-todo.svg"
+                  alt=""
+                  class="topnav__sublink-icon"
+                />
+                Todo list</a
+              >
+            </li>
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink">
+                <img
+                  src="assets/images/icon-calendar.svg"
+                  alt=""
+                  class="topnav__sublink-icon"
+                />Celendar</a
+              >
+            </li>
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink">
+                <img
+                  src="assets/images/icon-reminders.svg"
+                  alt=""
+                  class="topnav__sublink-icon"
+                />Reminders</a
+              >
+            </li>
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink">
+                <img
+                  src="assets/images/icon-planning.svg"
+                  alt=""
+                  class="topnav__sublink-icon"
+                />Planning</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="topnav__item topnav__item--has-submenu">
+          <a
+            href="#"
+            class="topnav__link topnav__link--dropdown"
+            aria-expanded="false"
+            id="dropdown-2"
+            >Company</a
+          >
+          <ul class="topnav__submenu topnav__submenu--left">
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink">History</a>
+            </li>
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink">Our team</a>
+            </li>
+            <li class="topnav__subitem">
+              <a href="#" class="topnav__sublink">Blog</a>
+            </li>
+          </ul>
+        </li>
+        <li class="topnav__item">
+          <a href="#" class="topnav__link">Careers</a>
+        </li>
+        <li class="topnav__item"><a href="#" class="topnav__link">About</a></li>
+      </ul>
+
+      <ul class="topnav__links">
+        <li class="topnav__item">
+          <a href="#" class="topnav__link topnav__link--center">Login</a>
+        </li>
+        <li class="topnav__item">
+          <a
+            href="#"
+            class="topnav__link topnav__link--border topnav__link--center"
+            >Register</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav__content nav__content--large-screen-open"></div>
+</nav>
