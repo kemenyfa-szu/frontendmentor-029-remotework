@@ -2,67 +2,13 @@
   <app-navigation (inertMain)="mainInert($event)"></app-navigation>
 </header>
 <main [inert]="inertMain">
-  <section class="article">
-    <article class="article__container">
-      <picture class="article__image">
-        <source
-          media="(min-width:64rem)"
-          srcset="assets/images/image-hero-desktop.png"
-        />
-        <img
-          src="assets/images/image-hero-mobile.png"
-          alt=""
-          class="article__image"
-        />
-      </picture>
-
-      <div class="article__content">
-        <h1 class="article__title">Make remote work</h1>
-        <p class="article__text">
-          Get your team in sync, no matter your location. Streamline processes,
-          create team rituals, and watch productivity soar.
-        </p>
-
-        <a href="#" class="article__learn-more">Learn more</a>
-        <ul class="article__partner-list">
-          <li>
-            <img
-              src="assets/images/client-databiz.svg"
-              alt="databiz logo"
-              class="article__partner"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/client-audiophile.svg"
-              alt="databiz logo"
-              class="article__partner"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/client-meet.svg"
-              alt="databiz logo"
-              class="article__partner"
-            />
-          </li>
-          <li>
-            <img
-              src="assets/images/client-maker.svg"
-              alt="databiz logo"
-              class="article__partner"
-            />
-          </li>
-        </ul>
-      </div>
-    </article>
-  </section>
+  <app-hero-section></app-hero-section>
 </main>
 <footer>
   <div class="attribution">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
       >Frontend Mentor</a
-    >. Coded by <a href="#">Your Name Here</a>.
+    >. Coded by <a href="#">kemenyfa-szu</a>.
   </div>
 </footer>

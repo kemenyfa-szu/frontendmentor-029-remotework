@@ -1,0 +1,111 @@
+@use "../../styles.scss" as base;
+
+.article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    @media (width < 64rem) {
+      max-width: 25rem;
+    }
+    @media (width >= 64rem) {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "text picture"
+        "text picture";
+      margin-inline: min(7rem, 10vw);
+      max-width: 68rem;
+      gap: 5% 4rem;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2%;
+  }
+
+  &__image {
+    grid-area: picture;
+
+    @media (width < 64rem) {
+      margin-block-end: 3rem;
+    }
+
+    @media (width >= 64rem) {
+      flex-shrink: 1;
+      max-width: min(26.6rem, 33vw);
+    }
+  }
+  &__content {
+    grid-area: text;
+    text-align: center;
+    padding-inline: 0.5rem;
+
+    @media (width >= 64rem) {
+      display: grid;
+      grid-template-rows: subgrid;
+      justify-content: center;
+      padding-inline-start: 2rem;
+      text-align: left;
+    }
+  }
+  &__title {
+    font-size: clamp(2rem, 5.65vw, 4.5rem);
+    font-weight: 700;
+    margin-block-end: 1rem;
+    text-wrap: balance;
+    letter-spacing: -1px;
+  }
+
+  &__paragraph {
+    font-size: clamp(0.875rem, calc(0.5rem + 0.75vw), 1rem);
+    font-weight: 600;
+    line-height: 1.55;
+    margin-block-end: 1.5rem;
+
+    @media (width >= 64rem) {
+      max-width: 80%;
+    }
+  }
+
+  &__learn-more {
+    display: inline-block;
+    background-color: base.$almost-black;
+    color: base.$almost-white;
+    padding: 1em 1.75em;
+    font-size: clamp(0.875rem, calc(0.5rem + 0.75vw), 1rem);
+    border-radius: 15px;
+    font-weight: 600;
+    border: 1px solid base.$almost-black;
+
+    &:hover {
+      background-color: base.$almost-white;
+      color: base.$almost-black;
+    }
+
+    @media (width < 64rem) {
+      margin-block-end: 2.75rem;
+    }
+
+    @media (width >= 64rem) {
+      margin-inline-end: auto;
+    }
+  }
+
+  &__partner-list {
+    margin-top: auto;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    gap: clamp(1.25rem, 5%, 2.5rem);
+  }
+  &__partner {
+    @media (width >= 64rem) {
+      max-width: 7vw;
+    }
+  }
+}
