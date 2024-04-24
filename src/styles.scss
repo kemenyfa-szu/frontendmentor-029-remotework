@@ -11,7 +11,8 @@ $almost-black: hsl(0, 0%, 8%);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  outline: 1px solid tomato;
+  outline-offset: 5px;
+  outline-color: rebeccapurple;
 }
 
 html {
@@ -46,6 +47,10 @@ a:hover {
 img {
   display: block;
   max-width: 100%;
+}
+
+header {
+  margin-block-end: 2.5rem;
 }
 
 footer {

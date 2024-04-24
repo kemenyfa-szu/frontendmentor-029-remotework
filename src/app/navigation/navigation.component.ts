@@ -8,11 +8,12 @@ import {
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { timer } from './timer';
+import { ClickOutsideDirective } from '../click-outside.directive';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [],
+  imports: [ClickOutsideDirective],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
@@ -35,7 +36,7 @@ export class NavigationComponent implements AfterViewInit {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher
   ) {
-    this.mediaWidth = media.matchMedia('(width < 40em)');
+    this.mediaWidth = media.matchMedia('(width < 55rem)');
     this.isMobile = this.mediaWidth.matches;
     this.mediaWidthQueryListener = () => {
       changeDetectorRef.detectChanges();
@@ -74,11 +75,11 @@ export class NavigationComponent implements AfterViewInit {
   setupEventListeners(): void {
     this.btnOpen?.addEventListener('click', this.openMobileMenu.bind(this));
     this.btnClose?.addEventListener('click', this.closeMobileMenu.bind(this));
+
     const blankArea =
       this.elementRef?.nativeElement.querySelector('.topnav__container');
 
     blankArea.addEventListener('click', this.handleblankAreaClick.bind(this));
-
     const elements = this.elementRef?.nativeElement.querySelectorAll(
       '.topnav__link--dropdown'
     );
@@ -117,8 +118,7 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   handleMouseOver(event: MouseEvent): void {
-    // ulElement.style.display = 'block';
-    if (!this.isTouch) {
+    if (!this.isMobile && !this.isTouch) {
       const target = event.target as HTMLElement;
       const timeoutIndex = this.getTimerIndex(target.id);
       clearTimeout(this.timers[timeoutIndex].timer);
@@ -130,7 +130,7 @@ export class NavigationComponent implements AfterViewInit {
   handleMouseOut(event: Event): void {
     const eventTarget = event.target as HTMLElement;
     const timeoutIndex = this.getTimerIndex(eventTarget.id);
-    if (this.isTouch || !this.isMobile) {
+    if (!this.isTouch && !this.isMobile) {
       this.timers[timeoutIndex].timer = window.setTimeout(() => {
         const target = event.target as HTMLElement;
         target.setAttribute('aria-expanded', 'false');
@@ -139,14 +139,14 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   handleMouseOverSibling(element: HTMLElement): void {
-    if (!this.isTouch) {
+    if (!this.isTouch && !this.isMobile) {
       const timeoutIndex = this.getTimerIndex(element.id);
       clearTimeout(this.timers[timeoutIndex].timer);
     }
   }
 
   handleMouseOutSibling(element: HTMLElement): void {
-    if (this.isTouch || !this.isMobile) {
+    if (!this.isTouch && !this.isMobile) {
       const timeoutIndex = this.getTimerIndex(element.id);
       this.timers[timeoutIndex].timer = window.setTimeout(() => {
         element.setAttribute('aria-expanded', 'false');
@@ -159,7 +159,7 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   setupTopNav() {
-    if (this.isTouch) {
+    if (this.isMobile) {
       this.topNavMenu?.setAttribute('inert', '');
     } else {
       this.closeMobileMenu();
@@ -185,5 +185,11 @@ export class NavigationComponent implements AfterViewInit {
     this.topNavMenu?.setAttribute('inert', '');
     this.inertMain?.emit(false);
     this.btnOpen?.focus();
+  }
+
+  closeMe(element: ElementRef): void {
+    const el = element.nativeElement as HTMLElement;
+
+    el.querySelector('.topnav__link')?.setAttribute('aria-expanded', 'false');
   }
 }

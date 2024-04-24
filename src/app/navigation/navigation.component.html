@@ -19,7 +19,14 @@
       </button>
 
       <ul class="topnav__links">
-        <li class="topnav__item topnav__item--has-submenu">
+        <li
+          class="topnav__item topnav__item--has-submenu"
+          appLightbox
+          highlightColor="black"
+          clickOutside
+          (closeMe)="closeMe($event)"
+          [isMobile]="isMobile"
+        >
           <a
             href="#"
             class="topnav__link topnav__link--dropdown"
@@ -69,7 +76,12 @@
             </li>
           </ul>
         </li>
-        <li class="topnav__item topnav__item--has-submenu">
+        <li
+          class="topnav__item topnav__item--has-submenu"
+          clickOutside
+          (closeMe)="closeMe($event)"
+          [isMobile]="isMobile"
+        >
           <a
             href="#"
             class="topnav__link topnav__link--dropdown"
